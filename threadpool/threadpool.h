@@ -50,7 +50,7 @@ threadpool<T>::threadpool( int actor_model, connection_pool *connPool, int threa
         }
         if (pthread_detach(m_threads[i]))
         {
-            delete[] m_threads;
+            delete[] m_threads
             throw std::exception();
         }
     }

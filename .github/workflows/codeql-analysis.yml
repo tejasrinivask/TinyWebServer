@@ -70,3 +70,15 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+      # Generate issues and save results
+    - uses: amitgupta7/ghas-reports-action@main
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+          # optionally define repo (default is calling repo)
+          # repo: 'amagimedia/mimas'
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: results
+        path: alerts.xlsx
+    
